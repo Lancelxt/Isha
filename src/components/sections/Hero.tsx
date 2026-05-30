@@ -39,10 +39,14 @@ export default function Hero() {
         minHeight: "100vh",
         background: "linear-gradient(180deg, #FFF8F4 0%, #FFFFFF 100%)",
         paddingTop: "6rem",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
       }}
     >
-      {/* 3D Blob Background (left side atmosphere) */}
+      {/* 3D Blob Background (left side atmosphere - hidden on mobile for maximum legibility) */}
       <div
+        className="hero-blob-container"
         style={{
           position: "absolute",
           left: "-10%",
@@ -58,6 +62,7 @@ export default function Hero() {
 
       {/* Content */}
       <div
+        className="hero-text-container"
         style={{
           position: "relative",
           zIndex: 10,
@@ -72,6 +77,7 @@ export default function Hero() {
       >
         {/* Left Column — Text */}
         <motion.div
+          className="hero-text-col"
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
@@ -84,7 +90,7 @@ export default function Hero() {
           }}
         >
           {/* Badge */}
-          <motion.div variants={fadeUp} style={{ marginBottom: "1.5rem" }}>
+          <motion.div variants={fadeUp} style={{ marginBottom: "1.5rem" }} className="hero-badge-wrapper">
             <span className="section-badge">
               Premium Signage Solutions in Chhattisgarh
             </span>
@@ -124,6 +130,7 @@ export default function Hero() {
           {/* CTA Buttons */}
           <motion.div
             variants={fadeUp}
+            className="hero-ctas"
             style={{
               display: "flex",
               gap: "1rem",
@@ -148,6 +155,7 @@ export default function Hero() {
 
           {/* Trust Bar */}
           <motion.div
+            className="hero-trust-bar"
             variants={fadeUp}
             style={{
               display: "flex",
@@ -181,7 +189,7 @@ export default function Hero() {
                 </div>
               ))}
             </div>
-            <div>
+            <div style={{ textAlign: "left" }}>
               <p
                 style={{
                   fontSize: "0.875rem",
@@ -223,22 +231,9 @@ export default function Hero() {
           height: "100%",
           overflow: "hidden",
           zIndex: 5,
-          display: "none", // Hide on mobile, show on tablet+ via CSS
         }}
         className="hero-right-bg"
       >
-        <style>{`
-          @media (max-width: 1023px) {
-            .hero-right-bg {
-              display: none !important;
-            }
-          }
-          @media (min-width: 1024px) {
-            .hero-right-bg {
-              display: block !important;
-            }
-          }
-        `}</style>
         {/* Full-bleed abstract image */}
         <Image
           src="/images/hero-abstract.jpg"
@@ -271,6 +266,73 @@ export default function Hero() {
           }}
         />
       </motion.div>
+
+      {/* Responsive Styles Overlay - Clean Vanilla Selectors */}
+      <style>{`
+        @media (max-width: 1023px) {
+          .hero-blob-container {
+            display: none !important; /* Hide 3D blob so backdrop is legibile */
+          }
+          
+          .hero-right-bg {
+            display: block !important;
+            position: absolute !important;
+            inset: 0 !important;
+            width: 100vw !important;
+            height: 100% !important;
+            opacity: 0.12 !important; /* Frosted backdrop overlay opacity */
+            filter: blur(8px) !important;
+            z-index: 1 !important;
+          }
+
+          .hero-text-container {
+            align-items: center !important;
+            justify-content: center !important;
+            padding-left: 1.5rem !important;
+            padding-right: 1.5rem !important;
+            text-align: center !important;
+            min-height: 90vh !important;
+          }
+
+          .hero-text-col {
+            max-width: 100% !important;
+            padding-right: 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+
+          .hero-ctas {
+            justify-content: center !important;
+          }
+
+          .hero-trust-bar {
+            justify-content: center !important;
+            width: 100% !important;
+            max-width: 450px !important;
+          }
+          
+          .hero-trust-bar > div:last-child {
+            text-align: center !important;
+          }
+        }
+        
+        @media (min-width: 1024px) {
+          .hero-blob-container {
+            display: block !important;
+          }
+          
+          .hero-right-bg {
+            display: block !important;
+            width: 50vw !important;
+            height: 100% !important;
+            opacity: 1 !important;
+            filter: none !important;
+            z-index: 5 !important;
+          }
+        }
+      `}</style>
 
       {/* Scroll Indicator */}
       <motion.div
