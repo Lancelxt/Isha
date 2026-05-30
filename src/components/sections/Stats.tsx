@@ -159,11 +159,7 @@ export default function Stats({ id }: { id?: string }) {
         </motion.div>
 
         {/* Stats Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '2rem'
-        }}>
+        <div className="stats-grid">
           {stats.map((stat, index) => (
             <StatCard key={index} stat={stat} index={index} />
           ))}
@@ -184,19 +180,6 @@ export default function Stats({ id }: { id?: string }) {
           }}
         />
       </div>
-
-      <style jsx>{`
-        @media (max-width: 900px) {
-          div[style*="grid-template-columns"] {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-        @media (max-width: 500px) {
-          div[style*="grid-template-columns"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
