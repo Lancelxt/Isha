@@ -89,20 +89,19 @@ export default function Header() {
               textDecoration: 'none',
             }}
           >
-            <span style={{
-              width: 36,
-              height: 36,
-              borderRadius: '50%',
-              background: 'linear-gradient(135deg, #D45C2A 0%, #F5A623 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '1rem',
-              fontWeight: 700,
-              color: '#FFFFFF',
-            }}>
-              IS
-            </span>
+            <img
+              src="/logo.png"
+              alt="ISHA Signage"
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: '50%',
+                objectFit: 'contain',
+                background: '#FFFFFF',
+                padding: '2px',
+                border: '1px solid rgba(212, 92, 42, 0.15)',
+              }}
+            />
             <span style={{
               fontSize: '1.25rem',
               fontWeight: 700,
@@ -341,20 +340,18 @@ export default function Header() {
               flexShrink: 0,
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <span style={{
-                  width: 32,
-                  height: 32,
-                  borderRadius: '50%',
-                  background: '#FFFFFF',
-                  color: '#D45C2A',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '0.9rem',
-                  fontWeight: 800,
-                }}>
-                  IS
-                </span>
+                <img
+                  src="/logo.png"
+                  alt="ISHA Signage"
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: '50%',
+                    objectFit: 'contain',
+                    background: '#FFFFFF',
+                    padding: '2px',
+                  }}
+                />
                 <span style={{ fontSize: '1.25rem', fontWeight: 700, letterSpacing: '-0.02em' }}>
                   ISHA <span style={{ fontWeight: 400, opacity: 0.9 }}>Menu</span>
                 </span>

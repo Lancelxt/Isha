@@ -34,23 +34,19 @@ export default function Footer() {
                 gap: "0.5rem",
               }}
             >
-              <span
+              <img
+                src="/logo.png"
+                alt="ISHA Signage"
                 style={{
                   width: "32px",
                   height: "32px",
                   borderRadius: "50%",
-                  background:
-                    "linear-gradient(135deg, #D45C2A 0%, #F5A623 100%)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "1rem",
-                  fontWeight: 700,
-                  color: "#FFFFFF",
+                  objectFit: "contain",
+                  background: "#FFFFFF",
+                  padding: "2px",
+                  border: "1px solid rgba(212, 92, 42, 0.15)",
                 }}
-              >
-                IS
-              </span>
+              />
               ISHA
             </h3>
             <p
